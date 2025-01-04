@@ -28,14 +28,14 @@ import {
   Section3Second,
   Wrapper,
 } from './Start.styles';
-import { AnimatePresence, useTransform, useViewportScroll } from 'framer-motion';
+import { AnimatePresence, useTransform, useScroll } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Start = () => {
   const [isTop, setIsTop] = useState(true);
 
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
 
   const section2_1_y = useTransform(scrollYProgress, [0.02, 0.13], [150, 0]);
   const section2_1_opacity = useTransform(scrollYProgress, [0.02, 0.13], [0.3, 1]);
@@ -47,6 +47,7 @@ const Start = () => {
   const section2_4_opacity = useTransform(scrollYProgress, [0.68, 0.8], [0, 1]);
   const section3_y = useTransform(scrollYProgress, [0.83, 0.93], [200, 0]);
   const section3_opacity = useTransform(scrollYProgress, [0.83, 0.93], [0, 1]);
+
   // 일정 스크롤이 내려가면 헤더에 보더값이 생기게 하는 함수
   const onScrollFn = useCallback(() => {
     if (window.scrollY > 65) {
@@ -62,6 +63,7 @@ const Start = () => {
       behavior: 'smooth',
     });
   }, []);
+
   // 스크롤 이벤트를 등록
   useEffect(() => {
     window.addEventListener('scroll', onScrollFn);
