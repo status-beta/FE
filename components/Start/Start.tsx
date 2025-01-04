@@ -78,10 +78,10 @@ const Start = () => {
         </Logo>
         <Nav>
           <span>문의하기</span>
-          <Link href="/sign">
+          <Link href="/login">
             <span>로그인하기</span>
           </Link>
-          <Link href="/login">
+          <Link href="/sign">
             <button>Status 무료 가입</button>
           </Link>
         </Nav>
@@ -99,7 +99,7 @@ const Start = () => {
             <p>일을 잘하는 것만큼 함께하는 팀을 알아가는 것도 중요하죠.</p>
             <strong>스테이터스로 팀원의 일정과 상태를 체크하며 서로를 알아가세요.</strong>
             <Section1Btns>
-              <Link href={'/login'}>Status 무료 가입</Link>
+              <Link href={'/sign'}>Status 무료 가입</Link>
               <button>
                 <span>
                   <Image src={GoogleLogin} alt="구글" />
@@ -182,7 +182,7 @@ const Start = () => {
             <BigLogoSvg />
             <h2>오늘 바로 팀과 Status를 사용해 보세요.</h2>
             <p>Get to know your team better.</p>
-            <Link href={'/login'}>Status 무료 가입</Link>
+            <Link href={'/sign'}>Status 무료 가입</Link>
           </Section3First>
           <Section3Second>
             <BigLogoSvg />
