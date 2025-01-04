@@ -28,14 +28,14 @@ import {
   Section3Second,
   Wrapper,
 } from './Start.styles';
-import { AnimatePresence, useTransform, useViewportScroll } from 'framer-motion';
+import { AnimatePresence, useTransform, useScroll } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Start = () => {
   const [isTop, setIsTop] = useState(true);
 
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
 
   const section2_1_y = useTransform(scrollYProgress, [0.02, 0.13], [150, 0]);
   const section2_1_opacity = useTransform(scrollYProgress, [0.02, 0.13], [0.3, 1]);
@@ -47,6 +47,7 @@ const Start = () => {
   const section2_4_opacity = useTransform(scrollYProgress, [0.68, 0.8], [0, 1]);
   const section3_y = useTransform(scrollYProgress, [0.83, 0.93], [200, 0]);
   const section3_opacity = useTransform(scrollYProgress, [0.83, 0.93], [0, 1]);
+
   // 일정 스크롤이 내려가면 헤더에 보더값이 생기게 하는 함수
   const onScrollFn = useCallback(() => {
     if (window.scrollY > 65) {
@@ -62,6 +63,7 @@ const Start = () => {
       behavior: 'smooth',
     });
   }, []);
+
   // 스크롤 이벤트를 등록
   useEffect(() => {
     window.addEventListener('scroll', onScrollFn);
@@ -76,10 +78,10 @@ const Start = () => {
         </Logo>
         <Nav>
           <span>문의하기</span>
-          <Link href="/sign">
+          <Link href="/login">
             <span>로그인하기</span>
           </Link>
-          <Link href="/login">
+          <Link href="/sign">
             <button>Status 무료 가입</button>
           </Link>
         </Nav>
@@ -97,7 +99,7 @@ const Start = () => {
             <p>일을 잘하는 것만큼 함께하는 팀을 알아가는 것도 중요하죠.</p>
             <strong>스테이터스로 팀원의 일정과 상태를 체크하며 서로를 알아가세요.</strong>
             <Section1Btns>
-              <Link href={'/login'}>Status 무료 가입</Link>
+              <Link href={'/sign'}>Status 무료 가입</Link>
               <button>
                 <span>
                   <Image src={GoogleLogin} alt="구글" />
@@ -180,7 +182,7 @@ const Start = () => {
             <BigLogoSvg />
             <h2>오늘 바로 팀과 Status를 사용해 보세요.</h2>
             <p>Get to know your team better.</p>
-            <Link href={'/login'}>Status 무료 가입</Link>
+            <Link href={'/sign'}>Status 무료 가입</Link>
           </Section3First>
           <Section3Second>
             <BigLogoSvg />

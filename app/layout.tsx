@@ -1,7 +1,9 @@
 'use client';
 
 import { ReactNode, useEffect, useState } from 'react';
-import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheet, ThemeProvider } from 'styled-components';
+import { GlobalStyle } from './shared/globalStyles';
+import { lightMode } from './shared/themes/light-theme';
 
 export default function RootLayout({
   children,
@@ -21,11 +23,14 @@ export default function RootLayout({
   }, [children]);
 
   return (
-    <html lang="en">
-      <body>
-        {styleTag} {/* SSR로 수집된 스타일 태그 삽입 */}
-        {children}
-      </body>
-    </html>
+    <ThemeProvider theme={lightMode}>
+      <GlobalStyle />
+      <html lang="en">
+        <body>
+          {styleTag} {/* SSR로 수집된 스타일 태그 삽입 */}
+          {children}
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }
