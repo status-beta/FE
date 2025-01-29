@@ -1,4 +1,4 @@
-import { FlexAlignBox, FlexColumnBox } from '@/app/shared/flex';
+import { FlexAlignBox, FlexColumnBox } from '@/shared/flex';
 import React from 'react';
 import styled from 'styled-components';
 import { UseFormRegisterReturn } from 'react-hook-form';

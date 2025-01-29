@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FlexAlignBox, FlexBetweenBox, FlexCenterBox, FlexColumnBox } from '@/app/shared/flex';
+import { FlexAlignBox, FlexBetweenBox, FlexCenterBox, FlexColumnBox } from '@/shared/flex';
 
 export const Wrapper = styled.div`
   width: 1400px;

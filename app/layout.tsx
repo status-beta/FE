@@ -2,8 +2,8 @@
 
 import { ReactNode, useEffect, useState } from 'react';
 import { ServerStyleSheet, ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './shared/globalStyles';
-import { lightMode } from './shared/themes/light-theme';
+import { GlobalStyle } from '@/shared/globalStyles';
+import { lightMode } from '@/shared/themes/light-theme';
 
 export default function RootLayout({
   children,

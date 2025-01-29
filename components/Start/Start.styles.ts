@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FlexBetweenBox, FlexCenterBox, FlexColumnBox } from '@/app/shared/flex';
+import { FlexBetweenBox, FlexCenterBox, FlexColumnBox } from '@/shared/flex';
 import { motion } from 'framer-motion';
 
 export const Wrapper = styled.div`
