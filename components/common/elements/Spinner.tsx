@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
-import { FlexCenterBox } from '@/app/shared/flex';
+import { FlexCenterBox } from '@/shared/flex';
 const Spinner = () => {
   return (
     <Wrapper variants={spinnerAni} initial="initial" animate="animate" exit="exit" transition={{ type: 'tween' }}>
