@@ -76,6 +76,7 @@ const Login = () => {
 
   return (
     <Wrapper>
+      <div></div>
       <LoginContainer>
         <SignInLogo>
           <Link href="/">
