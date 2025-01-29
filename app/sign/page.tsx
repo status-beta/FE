@@ -1,8 +1,5 @@
-export default function Sign() {
-  return (
-    <div>
-      <h1>Sign Page</h1>
-      <p>Sign</p>
-    </div>
-  );
+import Sign from '@/components/Sign/Sign';
+
+export default function SignPage() {
+  return <Sign />;
 }

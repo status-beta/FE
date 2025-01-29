@@ -18,18 +18,23 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import Input from '@/components/common/elements/Input';
 
+interface LoginFormData {
+  email: string;
+  password: string;
+}
+
 const Login = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm({ mode: 'onChange' });
+  } = useForm<LoginFormData>({ mode: 'onChange' });
 
   const email = watch('email');
   const password = watch('password');
@@ -38,7 +43,7 @@ const Login = () => {
     return email.includes('@') && password.length >= 8 && !errors.password ? setIsActive(true) : setIsActive(false);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     try {
       //   const response = await signin(data);
       //   if (!response.data) return alert('회원 정보를 찾을 수 없습니다.');
@@ -68,6 +73,7 @@ const Login = () => {
       //   });
     }
   };
+
   return (
     <Wrapper>
       <div></div>
