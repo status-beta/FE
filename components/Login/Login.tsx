@@ -19,6 +19,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Input from '@/components/common/elements/Input';
 
 const Login = () => {
   const [isActive, setIsActive] = useState(false);
@@ -69,7 +70,6 @@ const Login = () => {
   };
   return (
     <Wrapper>
-      {/* <CustomHelmet title={'로그인'} /> */}
       <div></div>
       <LoginContainer>
         <SignInLogo>
@@ -82,7 +82,7 @@ const Login = () => {
         </SignInLogo>
         <Title>로그인</Title>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          {/* <Input
+          <Input
             register={{
               ...register('email', {
                 required: '이메일을 입력해주세요',
@@ -125,7 +125,7 @@ const Login = () => {
             label={'비밀번호'}
             errors={errors}
             errorName={'password'}
-          /> */}
+          />
           <ButtonWrap>
             <button>계정 찾기</button>
             <button>비밀번호 찾기</button>
