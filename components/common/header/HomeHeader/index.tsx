@@ -16,70 +16,73 @@
 // import AlertModal from "../../../Modals/AlertModal";
 // import ProfileEditModal from "../../../Modals/ProfileEditModal";
 // import HeaderMenu from "../HeaderMenu";
-// import { RightNav, Nav, Wrapper, FakeImg } from "./styles";
+import { RightNav, Nav, Wrapper, FakeImg } from './styles';
 
-// const HomeHeader = () => {
-//   // const { userId } = decodeUser();
-//   const user = {
-//     avatarImg: null,
-//     nickname: "ahn970",
-//   };
-//   const [headerMenu, setHeaderMenu] = useRecoilState(headerMenuAtom);
-//   const [headerAlert, setHeaderAlert] = useState(false);
-//   // const { data: user } = useQuery(["user", userId], readUser, {
-//   //   retry: 1,
-//   // });
-//   const [editProfile, setEditProfile] = useRecoilState(editProfileModalAtom);
-//   const navigate = useNavigate();
-//   const setUser = useSetRecoilState(userAtom);
-//   const { data: invites } = useQuery(["alerts"], readInvites, {
-//     staleTime: 3000,
-//     refetchOnWindowFocus: false,
-//     retry: 0,
-//   });
+interface HomeHeaderProps {
+  isMain: boolean;
+}
 
-//   // 토큰이 존재하지 않을 시에 시작페이지로 이동
-//   // useEffect(() => {
-//   //   const cookie = existCookie();
-//   //   if (!cookie) {
-//   //     return navigate("/login");
-//   //   }
-//   // }, [navigate]);
+const HomeHeader = ({ isMain }: HomeHeaderProps) => {
+  //   // const { userId } = decodeUser();
+  //   const user = {
+  //     avatarImg: null,
+  //     nickname: "ahn970",
+  //   };
+  //   const [headerMenu, setHeaderMenu] = useRecoilState(headerMenuAtom);
+  //   const [headerAlert, setHeaderAlert] = useState(false);
+  //   // const { data: user } = useQuery(["user", userId], readUser, {
+  //   //   retry: 1,
+  //   // });
+  //   const [editProfile, setEditProfile] = useRecoilState(editProfileModalAtom);
+  //   const navigate = useNavigate();
+  //   const setUser = useSetRecoilState(userAtom);
+  //   const { data: invites } = useQuery(["alerts"], readInvites, {
+  //     staleTime: 3000,
+  //     refetchOnWindowFocus: false,
+  //     retry: 0,
+  //   });
 
-//   // user 데이터를 recoil에 저장
-//   useEffect(() => {
-//     if (user) {
-//       setUser(user);
-//     }
-//   }, [setUser, user]);
+  //   // 토큰이 존재하지 않을 시에 시작페이지로 이동
+  //   // useEffect(() => {
+  //   //   const cookie = existCookie();
+  //   //   if (!cookie) {
+  //   //     return navigate("/login");
+  //   //   }
+  //   // }, [navigate]);
 
-//   ///
+  //   // user 데이터를 recoil에 저장
+  //   useEffect(() => {
+  //     if (user) {
+  //       setUser(user);
+  //     }
+  //   }, [setUser, user]);
 
-//   return (
-//     <Wrapper as="header">
-//       <Nav as="nav">
-//         <Link to={"/main/write"}>
-//           <BigLogoSvg />
-//         </Link>
-//         <RightNav>
-//           <li onClick={() => (window.location.href = "https://forms.gle/Kei4J8JcNRVjrscs6")}>
-//             <QuestionSvg />
-//           </li>
-//           <li onClick={() => setHeaderAlert(true)}>
-//             <BellSvg />
-//             {invites && invites.length > 0 && <span>{invites?.length}</span>}
-//           </li>
-//           <li onClick={() => setHeaderMenu(true)}>
-//             {user && user.avatarImg ? <img src={user.avatarImg} alt={user.nickname} onError={handleImgError} /> : <FakeImg />}
+  //   ///
 
-//             {headerMenu && <HeaderMenu user={user} isMain={true} />}
-//           </li>
-//         </RightNav>
-//       </Nav>
-//       {headerAlert ? <AlertModal setHeaderAlert={setHeaderAlert} /> : null}
-//       {editProfile ? <ProfileEditModal isMain={true} closeModal={setEditProfile} user={user} /> : null}
-//     </Wrapper>
-//   );
-// };
+  return (
+    <Wrapper as="header">
+      {/* <Nav as="nav">
+        <Link to={"/main/write"}>
+          <BigLogoSvg />
+        </Link>
+        <RightNav>
+          <li onClick={() => (window.location.href = "https://forms.gle/Kei4J8JcNRVjrscs6")}>
+            <QuestionSvg />
+          </li>
+          <li onClick={() => setHeaderAlert(true)}>
+            <BellSvg />
+            {invites && invites.length > 0 && <span>{invites?.length}</span>}
+          </li>
+          <li onClick={() => setHeaderMenu(true)}>
+            {user && user.avatarImg ? <img src={user.avatarImg} alt={user.nickname} onError={handleImgError} /> : <FakeImg /
+            {headerMenu && <HeaderMenu user={user} isMain={true} />}
+          </li>
+        </RightNav>
+      </Nav>
+      {headerAlert ? <AlertModal setHeaderAlert={setHeaderAlert} /> : null}
+      {editProfile ? <ProfileEditModal isMain={true} closeModal={setEditProfile} user={user} /> : null} */}
+    </Wrapper>
+  );
+};
 
-// export default HomeHeader;
+export default HomeHeader;
