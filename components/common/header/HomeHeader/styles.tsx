@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FlexAlignBox, FlexCenterBox } from '@/app/shared/flex';
+import { FlexAlignBox, FlexCenterBox } from '@/shared/flex';
 
 export const Wrapper = styled.div`
   ${FlexAlignBox};
