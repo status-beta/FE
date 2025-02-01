@@ -2,14 +2,16 @@
 // import { Link, useMatch } from "react-router-dom";
 // import { handleImgError } from "../../../../utils/handleImgError";
 // import { FakeImg, GroupImg, GroupItem, GroupName } from "./styles";
+'use client';
+import Link from 'next/link';
 
-// const NavItem = ({ group }) => {
-//   const groupMatch = useMatch(`/groups/${group?.groupId}/*`);
-//   const [isHover, setIsHover] = useState(false);
+const NavItem = (groupId: string) => {
+  //   const groupMatch = useMatch(`/groups/${group?.groupId}/*`);
+  //   const [isHover, setIsHover] = useState(false);
 
-//   return (
-//     <Link to={`/groups/${group?.groupId}`}>
-//       <GroupItem
+  return (
+    <Link href={`/groups/${groupId}`}>
+      {/* //       <GroupItem
 //         onMouseOver={() => setIsHover(true)}
 //         onMouseLeave={() => setIsHover(false)}
 //       >
@@ -25,9 +27,9 @@
 //         )}
 
 //         {isHover && <GroupName>{group?.groupName}</GroupName>}
-//       </GroupItem>
-//     </Link>
-//   );
-// };
+//       </GroupItem> */}
+    </Link>
+  );
+};
 
-// export default NavItem;
+export default NavItem;

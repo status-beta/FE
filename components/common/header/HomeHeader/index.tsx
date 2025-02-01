@@ -1,3 +1,4 @@
+'use client';
 // import React, { useEffect, useState } from "react";
 // import { useQuery } from "react-query";
 // import { Link, useNavigate } from "react-router-dom";

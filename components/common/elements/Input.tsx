@@ -1,3 +1,5 @@
+'use client';
+
 import { FlexAlignBox, FlexColumnBox } from '@/shared/flex';
 import React from 'react';
 import styled from 'styled-components';

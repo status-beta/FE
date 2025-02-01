@@ -1,3 +1,5 @@
+'use client';
+
 // import React, { useEffect } from 'react';
 // import { useQuery } from 'react-query';
 // import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -6,6 +8,7 @@
 // import PlusSvg from '../../../assets/svg/PlusSvg';
 // import { groupListAtom } from '../../../recoil/groupAtoms';
 // import NavItem from './NavItem';
+
 import { GroupList, PlusBtn, Wrapper } from './styles';
 
 const SideTeamBar = () => {
