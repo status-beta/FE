@@ -1,0 +1,177 @@
+import React, { useCallback, useState } from 'react';
+// import { useMutation } from 'react-query';
+// import { useRecoilValue, useSetRecoilState } from 'recoil';
+// import { queryClient } from '../../..';
+// import { postLike, removePost, togglePost } from '../../../apis/postApi';
+import LikeSvg from '@/public/assets/svg/LikeSvg';
+import PostOptionSvg from '@/public/assets/svg/PostOptionSvg';
+import SpaceLikeSvg from '@/public/assets/svg/SpaceLikeSvg';
+// import { PostDetailAtom } from '../../../recoil/groupAtoms';
+// import { PostDetailModalAtom } from '../../../recoil/modalAtoms';
+// import { groupUserAtom } from '../../../recoil/userAtoms';
+import getTime from '../../../utils/formatTimeAgo';
+import { handleImgError } from '../../../utils/handleImgError';
+import { MenuBox } from '../../modals/Menu';
+import { CloseContainer, MenuList, PostOption } from '../FreePostItem/styles';
+import { motion } from 'framer-motion';
+
+import {
+  ContentBox,
+  LikeCount,
+  Post,
+  PostContent,
+  PostDate,
+  PostImg,
+  PostInfo,
+  PostInfoWrap,
+  PostLike,
+  PostWriter,
+  TitleWrap,
+  Vector,
+} from './styles';
+
+interface NoticePostItemProps {
+  groupId: string;
+  ref: any;
+  notice: any;
+  refetch: any;
+}
+
+function NoticePostItem({ groupId, ref, notice, refetch }: NoticePostItemProps) {
+  const [openPostMenu, setOpenPostMenu] = useState(false);
+  // const setShowPostDetail = useSetRecoilState(PostDetailModalAtom);
+
+  // const setDetailPost = useSetRecoilState(PostDetailAtom);
+  // const groupUser = useRecoilValue(groupUserAtom);
+
+  // const { mutate: removePostFn } = useMutation(removePost, {
+  //   onSuccess: () => refetch(),
+  // });
+
+  // const { mutate: togglePostFn } = useMutation(togglePost, {
+  //   onSuccess: () => {
+  //     refetch();
+  //     queryClient.invalidateQueries(['freePosts', groupId]);
+  //   },
+  // });
+
+  // 메뉴 닫기
+  const onCloseModal = useCallback(() => {
+    setOpenPostMenu(false);
+  }, []);
+
+  // 게시글 메뉴 열기
+  const modalOpen = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    setOpenPostMenu(true);
+  }, []);
+
+  //공지 게시글 좋아요
+  // const { mutate: likeFn } = useMutation(postLike, {
+  //   onSuccess: () => refetch(),
+  // });
+
+  const toggleLike = 
+  //useCallback(
+    () => {
+    const LikeData = {
+      groupId,
+      postId: notice.postId,
+    };
+    // likeFn(LikeData);
+ 
+ // }, [groupId, notice.postId, likeFn]);
+
+  // 게시글 삭제
+  const onDeletePost = 
+  //useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      const removePostData = {
+        groupId: groupId,
+        postId: notice.postId,
+      };
+      // removePostFn(removePostData);
+      onCloseModal();
+    },
+
+   // [notice.postId, groupId, removePostFn, onCloseModal],
+  // );
+
+  // 자유게시글을 공지글로 바꾸는 함수
+  const onTogglePost =  
+  //useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      // togglePostFn({ postId: notice.postId, groupId });
+      onCloseModal();
+    },
+    // [togglePostFn, onCloseModal, notice.postId, groupId],
+
+  //);
+
+  // 상세보기 클릭 시
+  const viewDetail = 
+  
+  //useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      // setShowPostDetail(true);
+      onCloseModal();
+      // setDetailPost(notice);
+    },
+    //   [onCloseModal, setShowPostDetail, setDetailPost, notice],
+    // );
+
+  return (
+    <motion.div layout>
+      {openPostMenu && <CloseContainer onClick={onCloseModal} />}
+      <Post ref={ref} key={notice.postId}>
+        {notice?.postImg[0] && (
+          <PostImg
+            src={notice.postImg[0].postImg}
+            alt={notice.groupUserNickname}
+            onError={handleImgError}
+            onClick={viewDetail}
+          />
+        )}
+        <ContentBox>
+          <TitleWrap onClick={viewDetail}>
+            <PostContent>{notice.content}</PostContent>
+            <PostOption onClick={modalOpen}>
+              {openPostMenu ? (
+                <MenuBox right={1} top={1.2}>
+                  {/* {groupUser.groupUserId === notice.groupUserId ? (
+                    <MenuList>
+                      <li onClick={onTogglePost}>자유글로 등록</li>
+                      <li onClick={viewDetail}>상세 보기</li>
+                      <li onClick={onDeletePost}>삭제</li>
+                    </MenuList>
+                  ) : (
+                    <MenuList>
+                      <li onClick={viewDetail}>상세 보기</li>
+                    </MenuList>
+                  )} */}
+                </MenuBox>
+              ) : null}
+              <PostOptionSvg />
+            </PostOption>
+          </TitleWrap>
+          <PostInfoWrap>
+            <PostInfo>
+              <PostWriter>{notice.groupUserNickname}</PostWriter>
+              <Vector>|</Vector>
+              <PostDate>{getTime(notice.createdAt)}</PostDate>
+            </PostInfo>
+            <PostLike onClick={toggleLike}>
+              {notice.findLike ? <LikeSvg /> : <SpaceLikeSvg />}
+              <LikeCount>{notice?.likeCount}</LikeCount>
+            </PostLike>
+          </PostInfoWrap>
+        </ContentBox>
+      </Post>
+    </motion.div>
+  );
+}
+
+export default NoticePostItem;
