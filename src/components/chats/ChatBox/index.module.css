@@ -1,0 +1,76 @@
+.chatContainer {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  grid-template-columns: '46px 1fr';
+  margin-bottom: 0.7rem;
+  padding: 0 1rem;
+}
+
+.chatContainer.isMe {
+  justify-items: flex-end;
+}
+
+.userImg {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  object-fit: cover;
+  justify-self: center;
+  cursor: pointer;
+}
+
+.fakeDiv {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.comment {
+  display: flex;
+  justify-content: start;
+  margin-left: 0.6em;
+  padding-top: 0.5rem;
+  p {
+    padding: 10px;
+    line-height: 1.25;
+    max-width: 540px;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    color: var(--color-black);
+  }
+  span,
+  strong {
+    margin-left: 0.3rem;
+    margin-right: 0rem;
+    font-size: 0.8rem;
+    align-self: flex-end;
+    padding-bottom: 0.2rem;
+    color: var(--color-gray);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    strong {
+      color: var(--color-green);
+      font-weight: 500;
+    }
+  }
+}
+
+.comment.isMe {
+  justify-content: flex-end;
+
+  p {
+    background-color: var(--color-green);
+    color: var(--color-white);
+  }
+
+  span,
+  strong {
+    margin-left: 0;
+    margin-right: 0.3rem;
+  }
+}
